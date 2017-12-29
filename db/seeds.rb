@@ -60,5 +60,4 @@ IncomeSource.create(
     category_id:Faker::Number.between(1,10),
     budget_id: 1,
   )
-  Category.create(title: Faker::Commerce.department)
 end
