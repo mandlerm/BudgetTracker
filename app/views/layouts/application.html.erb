@@ -16,9 +16,11 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-  
+    <%= render "layouts/header" %>
       <div class="container">
 
     <%= yield %>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>
