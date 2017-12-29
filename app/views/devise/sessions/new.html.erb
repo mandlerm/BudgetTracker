@@ -27,7 +27,7 @@
     <br />
 
     <%= link_to'Log in with GitHub', 'user_github_omniauth_authorize_path', id:"signin-spacing" %>
-    <%= link_to'Log in with Facebook', 'user_facebook_omniauth_authorize_path', id:"signin-spacing" %>
+    <%= link_to'Log in with Facebook', '/users/auth/facebook', id:"signin-spacing" %>
   <% end %>
 </div>
 <%= render "devise/shared/links" %>
