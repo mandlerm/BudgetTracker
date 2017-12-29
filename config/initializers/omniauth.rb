@@ -9,7 +9,7 @@ end
   #,provider_ignores_state: true
 
   Rails.application.config.middleware.use OmniAuth::Builder do
-    provider :facebook, '160434218061528', 'ef27bae5d8f7e258b71606d599c0053c'
-    #provider :facebook, ENV['FB_KEY'], ENV['FB_SECRET']
+    # provider :facebook, '160434218061528', 'ef27bae5d8f7e258b71606d599c0053c'
+    provider :facebook, ENV['FACEBOOK_KEY'], ENV['FACEBOOK_SECRET']
 
 end
