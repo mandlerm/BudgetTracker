@@ -1,0 +1,3 @@
+class Outgo < ApplicationRecord
+
+end

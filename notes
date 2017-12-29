@@ -1,23 +1,24 @@
-
-Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-12-29 11:20:44 -0600
-I, [2017-12-29T11:20:44.338869 #6165]  INFO -- omniauth: (facebook) Request phase initiated.
-
-Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-12-29 11:20:44 -0600
-I, [2017-12-29T11:20:44.431164 #6165]  INFO -- omniauth: (facebook) Request phase initiated.
-Started GET "/users/auth/facebook/callback?code=AQAUR7esC9V7Lna-BU_hjfCCRuwoZWxM-Y6-GrbBmbHusBFcbDeEUzatHOYFPDKGdFLon
-jIUTJ909pMohA6RSZdHcO3udkapiYu0x7KT6r0ZFesYGHgqSRL_FPGUengiVk6JesFfrYB8Oj_iBXAytlUbJApyZ2wCzeK9JnprgAckjhkgWpMFVMbkqx
-O6414tEVeL8XyqPtL3K5-6QMWSiWIYAQR2dzowvP32nRx2g-rk6FJeeDkXizGx5WQGW_17oPYdKB18Sw6COAKNwO9R22kmwTVNBvk2m_IOhLqmR2wZm9t
-xcG6bu8de96Rvpl85wtA&state=77f2c65c11f5cd0eeec59cdb329b6c8bd322778d1b33ff35" for 127.0.0.1 at 2017-12-29 11:20:44 -06
-00
+class Budget < ApplicationRecord
+  has_many :incomes
+  has_many :outgos
+  belongs_to :user
+end
 
 
-I, [2017-12-29T11:20:45.108024 #6165]  INFO -- omniauth: (facebook) Callback phase initiated.
-E, [2017-12-29T11:20:45.108146 #6165] ERROR -- omniauth: (facebook) Authentication failure! csrf_detected: OmniAuth::
-Strategies::OAuth2::CallbackError, csrf_detected | CSRF detected
-Processing by Users::OmniauthCallbacksController#failure as HTML
+class Income < ApplicationRecord
+  has_many :income_sources
+  has_many :budgets
+  belongs_to :user, :through => :budgets
+end
 
-  Parameters: {"code"=>"AQAUR7esC9V7Lna-BU_hjfCCRuwoZWxM-Y6-GrbBmbHusBFcbDeEUzatHOYFPDKGdFLonjIUTJ909pMohA6RSZdHcO3ud
-kapiYu0x7KT6r0ZFesYGHgqSRL_FPGUengiVk6JesFfrYB8Oj_iBXAytlUbJApyZ2wCzeK9JnprgAckjhkgWpMFVMbkqxO6414tEVeL8XyqPtL3K5-6QM
-WSiWIYAQR2dzowvP32nRx2g-rk6FJeeDkXizGx5WQGW_17oPYdKB18Sw6COAKNwO9R22kmwTVNBvk2m_IOhLqmR2wZm9txcG6bu8de96Rvpl85wtA", "
-state"=>"77f2c65c11f5cd0eeec59cdb329b6c8bd322778d1b33ff35"}
-Redirected to http://localhost:3000/
+class Outgo < ApplicationRecord
+  has_many :categories
+  has_many :budgets
+  belongs_to :user, through: :budgets
+end
+
+class Outgo < ApplicationRecord
+  has_many :categories
+  has_many :budgets
+  belongs_to :user, through: :budgets
+end
