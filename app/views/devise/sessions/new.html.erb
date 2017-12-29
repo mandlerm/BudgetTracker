@@ -23,6 +23,10 @@
     <div class="actions">
       <%= f.submit "Log in" %>
     </div>
+
+    <br />
+    <%= link_to'Log in with Google', '/auth/google', id:"signin-spacing" %>
+    <%= link_to'Log in with GitHub', '/auth/github', id:"signin-spacing" %>
   <% end %>
 </div>
 <%= render "devise/shared/links" %>
