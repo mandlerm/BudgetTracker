@@ -1,7 +1,7 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :google, CONSUMER_KEY, CONSUMER_SECRET
+  provider :google, ENV['CONSUMER_KEY'], ENV['CONSUMER_SECRET']
 end
 
-use OmniAuth::Builder do
+Rails.application.config.middleware.use OmniAuth::Builder do
   provider :github, ENV['GITHUB_KEY'], ENV['GITHUB_SECRET']
 end
