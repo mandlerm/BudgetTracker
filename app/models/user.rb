@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :budgets, dependent: :destroy
 
-  has_many :incomes, :through => :budgets
-  has_many :outgos, :through => :budgets
+  has_many :incomes, :through => :budgets, dependent: :destroy
+  has_many :outgos, :through => :budgets, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
