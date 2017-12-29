@@ -3,5 +3,14 @@
 
 
   <%= link_to "Sign up",  new_user_registration_path, class: "btn btn-lg btn-primary" ,id: "btn_space" %>
-  <%= link_to "Log in",  new_user_session_path, class: "btn btn-lg btn-primary", id: "btn_space" %>
+  <%= link_to "Log in",  new_user_session_path, class: "btn btn-lg btn-primary", id: "btn_space" %><br />
+
+  <% unless current_user %>
+  <%= link_to "Sign in with Facebook", '/users/auth/facebook' %>
+<% else %>
+  <%= current_user[:email] %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% end %>
+
+
 </div>
