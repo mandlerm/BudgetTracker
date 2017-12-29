@@ -1,10 +1,11 @@
 User.create(
-  email: 'jacob@email.com'
-  first_name: 'Jacob'
+  email: 'jacob@email.com',
+  first_name: 'Jacob',
+  password: 'password'
 )
 
 Budget.create(
-  month_year: 'December'
+  month_year: 'December',
   user_id: 1
 )
 
@@ -40,14 +41,16 @@ SpendingCategory.create(
 )
 
 Income.create(
-    name: "Work"
-    amount: "1500"
-    source_id: 1
+    date: '2017-22-12',
+    amount: "1500",
+    source_id: 1,
     budget_id: 1
 )
 
+
 IncomeSource.create(
   name: "Job"
+  income_id: 1 
 )
 
 10.times do
