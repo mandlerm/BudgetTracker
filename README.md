@@ -2,6 +2,7 @@
 
 A step up from paper and pencil budgeting, a step down from fully integrated technologies. This app solves my own problem of constantly losing papers and notebooks, while giving me budgeting capabilities apart from being connected to bank accounts. I hope you find it useful.
 
+
 Things you may want to cover:
 
 * Ruby version
@@ -20,4 +21,8 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Licensing
+
+  MIT License
+
+  Copyright (c) 2017 mandlerm
