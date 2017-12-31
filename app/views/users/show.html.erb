@@ -13,8 +13,11 @@
         <%= f.date_field :date %><br />
         <%= f.label :amount %>
         <%= f.text_field :amount, placeholder: 'xx.xx' %><br />
-        <%= f.label :income_source %>
-        <%= f.collection_select(:income_source_id, IncomeSource.all.order(:name), :id, :name) %><br />
+        <%= f.label :income_source, value: "Select a source" %>
+        <%= f.collection_select(:income_source_id, IncomeSource.all.order(:name), :id, :name) %>, or<br />
+        <%= f.label :income_source, value: "Record a new source" %><br />
+        <%= f.text_field :income_source_id, placeholder: 'new source' %><br />
+
         <%= f.fields_for :transaction do |transaction_form| %>
             <%= transaction_form.label :note %>
             <%= transaction_form.text_field :note, placeholder: 'optional' %>
