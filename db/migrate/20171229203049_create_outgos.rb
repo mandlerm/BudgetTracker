@@ -2,10 +2,9 @@ class CreateOutgos < ActiveRecord::Migration[5.1]
   def change
     create_table :outgos do |t|
       t.date :date
-      t.float :amount
-      t.string :location
-      t.integer :category_id
-      t.integer :budget_id
+      t.integer :amount
+      t.string :recipient
+      t.integer :sub_category_id
 
       t.timestamps
     end
