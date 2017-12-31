@@ -10,8 +10,11 @@
         #note<br />
         <%= f.label :date %>
         <%= f.date_field :date %><br />
+        <%= f.label :amount %>
         <%= f.text_field :amount %><br />
-        <%= f.text_field :income_source %><br />
+        <%= f.label :income_source %>
+        <%= f.collection_select :income_source, IncomeSource.order(:name), :id, :name, :include_blank %><br />
+        <%= f.label :note %>
         <%= f.text_field :note %><br />
 
         <%= f.submit 'Submit' %>

@@ -1,54 +1,54 @@
 User.create(
   email: 'jacob@email.com',
-  first_name: 'Jacob',
+  name: 'Jacob',
   password: 'password'
 )
 
-Budget.create(
-  month_year: 'December',
-  user_id: 1
-)
 
-SpendingCategory.create(
+SubCategory.create(
     name: 'Mortgage/Rent'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Utilities'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Food'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Auto Gas'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Auto Insurance'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Phone'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Internet'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Give'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Save'
 )
-SpendingCategory.create(
+SubCategory.create(
     name: 'Fun Money'
 )
 
 Income.create(
     date: '2017-22-12',
     amount: "1500",
-    source_id: 1,
-    budget_id: 1
+    income_source_id: 1
 )
 
 IncomeSource.create(
-  name: "Job",
+  name: "Job 1",
+  income_id: 1
+)
+
+IncomeSource.create(
+  name: "Job 2",
   income_id: 1
 )
 
@@ -56,8 +56,7 @@ IncomeSource.create(
   Outgo.create(
     date: Faker::Time.between(DateTime.now - 29, DateTime.now-1),
     amount: Faker::Number.between(1, 35),
-    location: Faker::Job.field,
-    category_id:Faker::Number.between(1,10),
-    budget_id: 1,
+    recipient: Faker::Job.field,
+    sub_category_id:Faker::Number.between(1,10),
   )
 end
