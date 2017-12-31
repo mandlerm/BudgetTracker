@@ -7,7 +7,7 @@
       Record an Income:
     </p>
 
-    <%= form_for @income,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
+    <%= form_for @income,  :url =>  income_index_path, :html => {:method => :post}  do |f| %>
 
         <%= f.label :date %>
         <%= f.date_field :date %><br />
@@ -31,7 +31,7 @@
     <p>
       Record an Outgo:
     </p>
-      <%= form_for @outgo,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
+      <%= form_for @outgo,  :url =>  outgo_index_path, :html => {:method => :post}  do |f| %>
       <%= f.label :date %>
       <%= f.date_field :date %><br />
       <%= f.label :amount %>
