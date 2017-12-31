@@ -20,5 +20,6 @@ class UsersController < ApplicationController
   def show
     @income = Income.new
     @outgo = Outgo.new
+    @transactions = Transactions.order('date DESC LIMIT 5')
   end
 end
