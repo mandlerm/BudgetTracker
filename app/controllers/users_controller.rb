@@ -18,5 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @income = Income.new
+    @outgo = Outgo.new
   end
 end

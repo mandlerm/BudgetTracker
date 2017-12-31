@@ -1,5 +1,30 @@
 <h1>Welcome <%= current_user.email %></h1>
 
+<div class="container">
+
+  <div class="col-sm-3">
+        <%= form_for @income,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
+        #date
+        #amount
+        #source dropdown
+        #note
+        <%= f.date_select Date.today %>
+        <%= f.submit 'Submit' %>
+      <% end %>
+
+  </div>
+
+  <div class="col-sm-3">
+      <%= form_for @outgo,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
+
+        <%= f.submit 'Submit' %>
+      <% end %>
+  </div>
+</div>
+
+
+
+
 Add a transaction<br />
 2 sides:<br />
 INCOME<br />
@@ -14,7 +39,3 @@ OUTGO<br />
   drop-down/type in category<br />
 <br />
 on right side: <br />
-Create a new budget button --> takes to new page<br />
-
-<%= button_to "Create a new budget", new_budget_path, :method => :get %>
-View your budget button  --> takes to new page<br />
