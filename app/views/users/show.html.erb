@@ -38,8 +38,10 @@
       <%= f.text_field :amount, placeholder: 'xx.xx'%><br />
       <%= f.label :recipient %>
       <%= f.text_field :recipient %><br />
-      <%= f.label :subcategory %>
-      <%= f.collection_select(:sub_category_id, SubCategory.all.order(:name), :id, :name) %><br />
+      <%= f.label :subcategory , value: "Select a category"%>
+      <%= f.collection_select(:sub_category_id, SubCategory.all.order(:name), :id, :name) %>, or <br />
+      <%= f.label :subcategory, value: "Record a new category" %><br />
+      <%= f.text_field :sub_category_id, placeholder: 'new category' %><br />
       <%= f.fields_for :transaction do |transaction_form| %>
           <%= transaction_form.label :note %>
           <%= transaction_form.text_field :note, placeholder: 'optional' %>
@@ -49,6 +51,3 @@
     <% end %>
   </div>
 </div>
-
-<h2>Need to set up your income sources and spending categories? </h2>
-  <h2>Start here:</h2>
