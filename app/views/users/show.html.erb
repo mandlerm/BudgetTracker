@@ -7,8 +7,13 @@
         #date
         #amount
         #source dropdown
-        #note
-        <%= f.date_select Date.today %>
+        #note<br />
+        <%= f.label :date %>
+        <%= f.date_field :date %><br />
+        <%= f.text_field :amount %><br />
+        <%= f.text_field :income_source %><br />
+        <%= f.text_field :note %><br />
+
         <%= f.submit 'Submit' %>
       <% end %>
 
