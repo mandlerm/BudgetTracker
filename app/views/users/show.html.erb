@@ -1,49 +1,57 @@
-<h1>Welcome <%= current_user.email %></h1>
+<h1>Welcome <%= current_user.name %></h1>
 
 <div class="container">
 
-  <div class="col-sm-3">
-        <%= form_for @income,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
-        #date
-        #amount
-        #source dropdown
-        #note<br />
+  <div class="col-sm-3 input_form">
+    <p>
+      Record an Income:
+    </p>
+
+    <%= form_for @income,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
+
         <%= f.label :date %>
         <%= f.date_field :date %><br />
         <%= f.label :amount %>
-        <%= f.text_field :amount %><br />
+        <%= f.text_field :amount, placeholder: 'xx.xx' %><br />
         <%= f.label :income_source %>
-        <%= f.collection_select :income_source, IncomeSource.order(:name), :id, :name, :include_blank %><br />
-        <%= f.label :note %>
-        <%= f.text_field :note %><br />
-
+        <%= f.collection_select(:income_source_id, IncomeSource.all.order(:name), :id, :name) %><br />
+        <%= f.fields_for :transaction do |transaction_form| %>
+            <%= transaction_form.label :note %>
+            <%= transaction_form.text_field :note, placeholder: 'optional' %>
+        <% end %>
         <%= f.submit 'Submit' %>
       <% end %>
 
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-3 input_form">
+    <p>
+      Record an Outgo:
+    </p>
       <%= form_for @outgo,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
+      <%= f.label :date %>
+      <%= f.date_field :date %><br />
+      <%= f.label :amount %>
+      <%= f.text_field :amount, placeholder: 'xx.xx'%><br />
+      <%= f.label :recipient %>
+      <%= f.text_field :recipient %><br />
+      <%= f.label :subcategory %>
+      <%= f.collection_select(:sub_category_id, SubCategory.all.order(:name), :id, :name) %><br />
+      <%= f.fields_for :transaction do |transaction_form| %>
+          <%= transaction_form.label :note %>
+          <%= transaction_form.text_field :note, placeholder: 'optional' %>
+      <% end %>
 
         <%= f.submit 'Submit' %>
-      <% end %>
+    <% end %>
   </div>
 </div>
 
+<h2>Need to set up your income sources and spending categories? </h2>
+  <h2>Start here:</h2>
 
 
+Create Sub Categories <br />
+Create Income Sources
 
-Add a transaction<br />
-2 sides:<br />
-INCOME<br />
-  select date<br />
-  add amount<br />
-  drop-down select source<br />
-<br />
-OUTGO<br />
-  select date<br />
-  enter amount<br />
-  enter location<br />
-  drop-down/type in category<br />
-<br />
-on right side: <br />
+<%= button_to  %>
