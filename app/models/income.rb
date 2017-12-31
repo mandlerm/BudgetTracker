@@ -3,16 +3,5 @@ class Income < ApplicationRecord
   has_many :transactions
   has_one :user, :through => :transactions
 
-  def create
-
-  end
-
-
-
-
-  private
-
-  def income_params
-    params.require(:income).permit(  )
-  end
+   validates :date, :amount, :income_source_id, presence: true
 end
