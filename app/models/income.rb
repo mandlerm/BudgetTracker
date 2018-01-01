@@ -1,5 +1,5 @@
 class Income < ApplicationRecord
-  belongs_to :income_sources
+  belongs_to :income_source
   has_many :transactions
   has_one :user, :through => :transactions
 

@@ -4,7 +4,13 @@ class IncomeController < ApplicationController
     binding.pry
     #cheater income_id  -- must have id to save, but cannot have ID until income is saved.  ??? Remove validation ???
     income_source = IncomeSource.find_or_create_by(name: income_params[:income_source_id].titleize)
-    income = Income.new(:date => income_params[:date], :amount => income_params[:amount], :income_source_id => income_source.id)
+    income = Income.new(:date => income_params[:date], :amount => income_params[:amount], :income_source => income_source)
+    if income.save
+      Transaction.create(user: current_user, income: income)
+    else
+
+    end
+
     # income.Transaction.build()
 
     # create new income row
