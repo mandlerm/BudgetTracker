@@ -12,10 +12,10 @@
         <%= f.date_field :date %><br />
         <%= f.label :amount %>
         <%= f.text_field :amount, placeholder: 'xx.xx' %><br />
-        <%= f.label :income_source, value: "Select a source" %>
+        <%= f.label :income_source, value: "Select or enter a source" %>
         <%= f.text_field :income_source_id, list: "income_source_autocomplete" %>
         <datalist id="income_source_autocomplete">
-          <% IncomeSource.all.each do |source| %>
+          <% IncomeSource.all.distinct.each do |source| %>
             <option value="<%= source.name %>">
           <% end %>
         </datalist>
@@ -49,7 +49,7 @@
       <%= f.label :subcategory, value: "Enter or select a category" %>
       <%= f.text_field :sub_category, list: "sub_category_autocomplete" %>
       <datalist id="sub_category_autocomplete">
-        <% SubCategory.all.each do |category| %>
+        <% SubCategory.all.distinct.each do |category| %>
           <option value="<%= category.name %>">
         <% end %>
       </datalist>
