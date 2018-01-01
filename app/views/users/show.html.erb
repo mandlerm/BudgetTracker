@@ -14,7 +14,7 @@
         <%= f.label :amount %>
         <%= f.text_field :amount, placeholder: 'xx.xx' %><br />
         <%= f.label :income_source, value: "Select a source" %>
-        <%= f.collection_select(:income_source_id, IncomeSource.all.order(:name), :id, :name) %>, or<br />
+        <%= f.collection_select(:income_source_id, IncomeSource.all.order(:name), :name, :name) %>, or<br />
         <%= f.label :income_source, value: "Record a new source" %><br />
         <%= f.text_field :income_source_id, placeholder: 'new source' %><br />
 
