@@ -13,7 +13,7 @@
         <%= f.label :amount %>
         <%= f.text_field :amount, placeholder: 'xx.xx' %><br />
         <%= f.label :income_source, value: "Select or enter a source" %>
-        <%= f.text_field :income_source_id, list: "income_source_autocomplete" %>
+        <%= f.text_field :income_source, list: "income_source_autocomplete" %>
         <datalist id="income_source_autocomplete">
           <% IncomeSource.all.distinct.each do |source| %>
             <option value="<%= source.name %>">

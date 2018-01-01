@@ -16,7 +16,7 @@ class IncomeController < ApplicationController
     # create new income row
     # create new transaction row
 
-    # redirect_to :user_path(current_user)
+    redirect_to '/users/current_user.id'
   end
 #
 

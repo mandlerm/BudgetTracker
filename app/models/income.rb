@@ -6,4 +6,6 @@ class Income < ApplicationRecord
    validates :date, :amount, presence: true
    # validate a date prior to current date
    # custom validation??
+
+   
 end
