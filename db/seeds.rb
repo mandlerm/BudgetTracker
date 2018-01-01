@@ -44,12 +44,10 @@ Income.create(
 
 IncomeSource.create(
   name: "Job 1",
-  income_id: 1
 )
 
 IncomeSource.create(
   name: "Job 2",
-  income_id: 1
 )
 
 10.times do

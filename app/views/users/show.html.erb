@@ -45,10 +45,16 @@
       <%= f.text_field :amount, placeholder: 'xx.xx'%><br />
       <%= f.label :recipient %>
       <%= f.text_field :recipient %><br />
-      <%= f.label :subcategory , value: "Select a category"%>
-      <%= f.collection_select(:sub_category_id, SubCategory.all.order(:name), :id, :name) %>, or <br />
-      <%= f.label :subcategory, value: "Record a new category" %><br />
-      <%= f.text_field :sub_category_id, placeholder: 'new category' %><br />
+
+      <%= f.label :subcategory, value: "Enter or select a category" %>
+      <%= f.text_field :sub_category, list: "sub_category_autocomplete" %>
+      <datalist id="sub_category_autocomplete">
+        <% SubCategory.all.each do |category| %>
+          <option value="<%= category.name %>">
+        <% end %>
+      </datalist>
+
+
       <%= f.fields_for :transaction do |transaction_form| %>
           <%= transaction_form.label :note %>
           <%= transaction_form.text_field :note, placeholder: 'optional' %>
