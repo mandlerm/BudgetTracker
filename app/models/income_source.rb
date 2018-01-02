@@ -1,6 +1,6 @@
 class IncomeSource < ApplicationRecord
-  has_many :incomes
-  # has_many :budgets
-  # belongs_to :user, :through => :budgets
+  has_many :transactions
+  belongs_to :user, through: :transactions
+  
    validates :name, uniqueness: true
 end

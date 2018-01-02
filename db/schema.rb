@@ -10,28 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231014919) do
+ActiveRecord::Schema.define(version: 20180102015027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "income_sources", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "incomes", force: :cascade do |t|
-    t.date "date"
-    t.float "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "income_source_id"
-  end
-
-  create_table "outgos", force: :cascade do |t|
-    t.date "date"
-    t.integer "amount"
-    t.string "recipient"
-    t.integer "sub_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,8 +26,10 @@ ActiveRecord::Schema.define(version: 20171231014919) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "income_id"
-    t.integer "outgo_id"
+    t.date "date"
+    t.integer "amount"
+    t.string "recipient"
+    t.integer "sub_category_id"
     t.integer "user_id"
     t.string "notes"
     t.datetime "created_at", null: false

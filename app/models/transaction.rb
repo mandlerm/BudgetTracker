@@ -1,7 +1,7 @@
 class Transaction < ApplicationRecord
-  belongs_to :income, optional: true
-  belongs_to :outgo, optional: true
+  belongs_to :income_source, optional: true
   belongs_to :user
+  has_many :categories
 
-  
+
 end

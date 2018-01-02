@@ -1,4 +1,5 @@
 class SubCategory < ApplicationRecord
-  has_many :outgos
+  has_many :transactions
+  belongs_to :user, through: :transactions
   validates :name, uniqueness: true
 end
