@@ -32,8 +32,6 @@ Categories
 
 
 
-
-
 class Budget < ApplicationRecord
   has_many :incomes
   has_many :outgos

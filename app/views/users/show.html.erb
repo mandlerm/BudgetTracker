@@ -15,12 +15,14 @@
         <%= f.label :amount %>
         <%= f.text_field :amount, placeholder: 'xx.xx' %><br />
 
-        <%= f.label :sub_category_id, value: "Enter or select a category" %>
-        <%= f.text_field :sub_category_id, list: "sub_category_autocomplete" %>
+        <%= f.fields_for :sub_category do |cat| %>
+        <%= cat.label :sub_category, value: "Enter or select a category" %>
+        <%= cat.text_field :sub_category, list: "sub_category_autocomplete" %>
         <datalist id="sub_category_autocomplete">
           <% SubCategory.all.distinct.each do |category| %>
             <option value="<%= category.name %>">
           <% end %>
+        <% end %>
         </datalist>
 
         <div class="either-or">
