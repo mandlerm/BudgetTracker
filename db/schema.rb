@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180102015027) do
     t.integer "amount"
     t.string "recipient"
     t.integer "sub_category_id"
+    t.integer "income_source_id"
     t.integer "user_id"
     t.string "notes"
     t.datetime "created_at", null: false

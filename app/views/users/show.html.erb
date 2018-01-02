@@ -4,25 +4,41 @@
 
   <div class="col-sm-3 input_form">
     <p>
-      Record an Income:
+      Record a Transaction:
     </p>
 
-    <%= form_for @income,  :url =>  income_index_path, :html => {:method => :post}  do |f| %>
+    <%= form_for @transaction,  :url =>  transaction_index_path, :html => {:method => :post}  do |f| %>
+
         <%= f.label :date %>
         <%= f.date_field :date %><br />
+
         <%= f.label :amount %>
         <%= f.text_field :amount, placeholder: 'xx.xx' %><br />
-        <%= f.label :income_source, value: "Select or enter a source" %>
-        <%= f.text_field :income_source, list: "income_source_autocomplete" %>
-        <datalist id="income_source_autocomplete">
-          <% IncomeSource.all.distinct.each do |source| %>
-            <option value="<%= source.name %>">
+
+        <%= f.label :sub_category_id, value: "Enter or select a category" %>
+        <%= f.text_field :sub_category_id, list: "sub_category_autocomplete" %>
+        <datalist id="sub_category_autocomplete">
+          <% SubCategory.all.distinct.each do |category| %>
+            <option value="<%= category.name %>">
           <% end %>
         </datalist>
-        <%= f.fields_for :transaction do |transaction_form| %>
-            <%= transaction_form.label :note %>
-            <%= transaction_form.text_field :note, placeholder: 'optional' %>
-        <% end %>
+
+        <div class="either-or">
+            <%= f.label :recipient, "If expense:" %>
+            <%= f.text_field :recipient, placeholder: 'i.e. store' %><br />
+
+            <%= f.label :income_source, value: "If INCOME, select source:" %>
+            <%= f.text_field :income_source, list: "income_source_autocomplete", placeholder: 'i.e. employer' %>
+            <datalist id="income_source_autocomplete">
+              <% IncomeSource.all.distinct.each do |source| %>
+                <option value="<%= source.name %>">
+              <% end %>
+            </datalist><br />
+          </div>
+
+        <%= f.label :notes %>
+        <%= f.text_field :notes, placeholder: 'optional' %><br />
+
         <%= f.submit 'Submit' %>
     <% end %>
   </div>
@@ -30,37 +46,8 @@
   <div class="col-sm-2 transaction_list">
     show last 5 transactions
 
-    <%=  %>
+
   </div>
 
 
-  <div class="col-sm-3 input_form">
-    <p>
-      Record an Outgo:
-    </p>
-      <%= form_for @outgo,  :url =>  outgo_index_path, :html => {:method => :post}  do |f| %>
-      <%= f.label :date %>
-      <%= f.date_field :date %><br />
-      <%= f.label :amount %>
-      <%= f.text_field :amount, placeholder: 'xx.xx'%><br />
-      <%= f.label :recipient %>
-      <%= f.text_field :recipient %><br />
-
-      <%= f.label :subcategory, value: "Enter or select a category" %>
-      <%= f.text_field :sub_category, list: "sub_category_autocomplete" %>
-      <datalist id="sub_category_autocomplete">
-        <% SubCategory.all.distinct.each do |category| %>
-          <option value="<%= category.name %>">
-        <% end %>
-      </datalist>
-
-
-      <%= f.fields_for :transaction do |transaction_form| %>
-          <%= transaction_form.label :note %>
-          <%= transaction_form.text_field :note, placeholder: 'optional' %>
-      <% end %>
-
-        <%= f.submit 'Submit' %>
-    <% end %>
-  </div>
 </div>

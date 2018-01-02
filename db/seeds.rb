@@ -35,26 +35,26 @@ SubCategory.create(
 SubCategory.create(
     name: 'Fun Money'
 )
-
-Income.create(
-    date: '2017-22-12',
-    amount: "1500",
-    income_source_id: 1
-)
-
-IncomeSource.create(
-  name: "Job 1",
-)
-
-IncomeSource.create(
-  name: "Job 2",
-)
-
-10.times do
-  Outgo.create(
-    date: Faker::Time.between(DateTime.now - 29, DateTime.now-1),
-    amount: Faker::Number.between(1, 35),
-    recipient: Faker::Job.field,
-    sub_category_id:Faker::Number.between(1,10),
-  )
-end
+#
+# Transaction.create(
+#     date: '2017-22-12',
+#     amount: "1500",
+#     sub_category_id: 1
+# )
+#
+# IncomeSource.create(
+#   name: "Job 1",
+# )
+#
+# IncomeSource.create(
+#   name: "Job 2",
+# )
+#
+# 10.times do
+#   Outgo.create(
+#     date: Faker::Time.between(DateTime.now - 29, DateTime.now-1),
+#     amount: Faker::Number.between(1, 35),
+#     recipient: Faker::Job.field,
+#     sub_category_id:Faker::Number.between(1,10),
+#   )
+# end
